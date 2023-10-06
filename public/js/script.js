@@ -1,6 +1,6 @@
 //const inputBox = document.getElementById("input-box");
-const listContainer = document.getElementById("list-container");
-const inputBox = $("#input-box");
+const listContainer = document.getElementById("list-container"); //vanilla js
+const inputBox = $("#input-box"); //dom jquery
 //const listContainer = $("#list-container");
 
 function addTask() {
@@ -8,7 +8,7 @@ function addTask() {
         alert("You must write something!");
     } else {
         let li = document.createElement("li");
-        li.innerHTML = inputBox.val();
+        li.innerHTML = inputBox.val(); //vanilla js, dom jquery
         listContainer.appendChild(li);
         let image = document.createElement("img");
         image.src = "./images/close.svg";
@@ -57,6 +57,7 @@ function loadPage(array) {
 
 let x = null;
 let y = [{ task: "Buying more Beanies", completed: false }];
+//to connect with server and get an array of task
 function getTask() {
     fetch("http://localhost:5500/read", {
         method: "GET",
@@ -73,6 +74,7 @@ function getTask() {
             console.log("Somethig is wrong with server", error);
         });
 }
+//to connect with server and save an array of task
 function saveTask(e) {
     e.preventDefault();
     let Task = document.getElementsByTagName("li");
@@ -92,6 +94,7 @@ function saveTask(e) {
     }
 
     fetch("http://localhost:5500/save", {
+        //ES6 js
         method: "PUT",
         headers: { task: "save" },
         body: JSON.stringify(arrayTask),
@@ -106,6 +109,7 @@ function saveTask(e) {
 }
 
 window.addEventListener("load", () => {
+    //ES6 js annonymous function
     document
         .getElementById("saveButton")
         .addEventListener("click", (e) => saveTask(e));

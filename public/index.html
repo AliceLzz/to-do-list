@@ -3,11 +3,14 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link rel="stylesheet" href="./css/styles.css" />
+        <title>To do list</title>
+
+        <link href="./dist/output.css" rel="stylesheet" />
     </head>
     <body>
-        <div class="container">
+        <div
+            class="h-screen flex justify-center items-center bg-gradient-to-r from-cyan-500 to-blue-500"
+        >
             <div class="todo-app">
                 <h2>To-Do List <img src="images/icon.png" alt="" /></h2>
                 <div class="row">
@@ -16,7 +19,12 @@
                         id="input-box"
                         placeholder="Add your text"
                     />
-                    <button onClick="addTask()">Add</button>
+                    <button
+                        onClick="addTask()"
+                        class="primaryBtn bg-cyan-500 hover:bg-cyan-700"
+                    >
+                        Add
+                    </button>
                 </div>
                 <ul id="list-container">
                     <!---- <li class="checked">Task 1</li>
@@ -24,7 +32,12 @@
                 <li>Task 3</li> -->
                 </ul>
                 <div style="display: flex; justify-content: flex-end">
-                    <button class="secondaryBtn" id="saveButton">Save</button>
+                    <button
+                        class="secondaryBtn text-cyan-500 hover:text-cyan-300"
+                        id="saveButton"
+                    >
+                        Save
+                    </button>
                 </div>
             </div>
         </div>

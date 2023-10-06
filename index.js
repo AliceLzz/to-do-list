@@ -1,6 +1,7 @@
 const express = require("express"); // Express module to create a server application
-const cors = require("cors"); // Cors module to handle Preflight requests
+//const cors = require("cors"); // Cors module to handle Preflight requests
 const bodyParser = require("body-parser"); // Body-parser module to parse JSON objects
+const path = require("path");
 
 const app = express(); // instance of an Express object
 const port = 5500; // the port the server will be listening on
@@ -9,11 +10,11 @@ const textBodyParser = bodyParser.text({
     defaultCharset: "utf-8",
 });
 
-app.use(
+/* app.use(
     cors({
         origin: "http://127.0.0.1:5501", // enable CORS for localhost:3000
     })
-);
+); */
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -21,17 +22,22 @@ app.use(bodyParser.json());
 const { writeFileJson, readFileJson } = require("./modules/todo");
 
 //Previous request
-app.options("/", (req, res) => {
+/* app.options("/", (req, res) => {
     res.header("Access-Control-Allow-Origin", "http://127.0.0.1:5501");
     res.header("Access-Control-Allow-Headers", "task"); // Allow the 'task 'header
     res.header("Access-Control-Allow-Methods", "GET"); // Allow the GET method
     res.header("Access-Control-Allow-Methods", "POST"); // Allow the POST method
     res.sendStatus(200);
+}); */
+
+app.use(express.static(path.join(__dirname, "public")));
+app.get("/", function (req, res) {
+    res.sendFile("index.html");
 });
 
-app.get("/", function (req, res) {
+app.get("/read", function (req, res) {
     let tasks = readFileJson();
-    console.log(tasks)
+    console.log(tasks);
     res.status(200).json(tasks);
     res.end();
 });

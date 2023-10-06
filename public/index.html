@@ -12,7 +12,14 @@
         <link href="./dist/output.css" rel="stylesheet" />
     </head>
     <body>
-        <div
+        <!--nav bar section with title-->
+        <nav
+            class="bg-transparent text-white flex justify-around items-center text-2xl p-4 font-bold absolute w-full"
+        >
+            <div>To Do List</div>
+        </nav>
+        <!--content section with to do list - flex container to center the to do component-->
+        <section
             class="h-screen flex justify-center items-center bg-gradient-to-r from-cyan-500 to-blue-500"
         >
             <div class="todo-app">
@@ -44,8 +51,28 @@
                     </button>
                 </div>
             </div>
-        </div>
-
+        </section>
+        <!--footer section with information - display flex to be responsive-->
+        <footer
+            class="bg-transparent text-white absolute bottom-0 left-0 right-0 flex flex-wrap justify-center p-8"
+        >
+            <div
+                class="flex-initial w-52 flex flex-col justify-center items-center"
+            >
+                <h3 class="text-xl font-semibold text-white p-4">
+                    Information
+                </h3>
+                <a href="">About us</a>
+                <a href="">Contact</a>
+            </div>
+            <div
+                class="flex-initial w-52 flex flex-col justify-center items-center"
+            >
+                <h3 class="text-xl font-semibold text-white p-4">Product</h3>
+                <a href="">Details</a>
+                <a href="">Team</a>
+            </div>
+        </footer>
         <script src="./js/script.js"></script>
     </body>
 </html>

@@ -1,3 +1,6 @@
+/* changing the default style */
+
+
 *{
     margin: 0;
     padding: 0;
@@ -5,7 +8,7 @@
     box-sizing: border-box;
 }
 
-
+/* container for to do list */
 .todo-app{
     width: 100%;
     max-width: 540px;
@@ -45,6 +48,7 @@ input{
     font-weight: 14px;
 }
 
+/* primary button to add the task */
 .primaryBtn{
     border: none;
     outline: none;
@@ -55,6 +59,7 @@ input{
     border-radius: 40px;
 }
 
+/* secondary button to save the list */
 .secondaryBtn{
     border: none;
     outline: none;
@@ -76,6 +81,7 @@ ul li{
     display: flex;
 }
 
+/* pseudo element before to set a image and show that the task is not completed */
 ul li::before{
     content: '';
     position: absolute;
@@ -94,6 +100,7 @@ ul li.checked{
     text-decoration: line-through;
 }
 
+/* pseudo element before to set a image and show that the task is completed */
 ul li.checked::before{
     background-image: url(../images/checked.png);
 

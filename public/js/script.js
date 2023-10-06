@@ -1,33 +1,26 @@
-const inputBox = document.getElementById("input-box");
+//const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
+const inputBox = $("#input-box");
+//const listContainer = $("#list-container");
 
 function addTask() {
-    console.group(`addTask()`);
-    console.log(`addTask() was called...`);
-    console.log(`inputbox.value: ${inputBox.value}`);
-    if (inputBox.value === "") {
-        console.log(`if condition: inputBox.value === ''`);
+    if (inputBox.val() === "") {
         alert("You must write something!");
     } else {
-        console.log(`if condition: else`);
         let li = document.createElement("li");
-        li.innerHTML = inputBox.value;
-        console.log(`typeof(listContainer): ${typeof listContainer}`);
+        li.innerHTML = inputBox.val();
         listContainer.appendChild(li);
         let image = document.createElement("img");
         image.src = "./images/close.svg";
         li.appendChild(image);
-        console.log(`typeof(li): ${typeof li}`);
     }
-    inputBox.value = "";
+    inputBox.val("");
     //saveData();
-    console.groupEnd(`addTask()`);
 }
 
 listContainer.addEventListener(
     "click",
     function (e) {
-        console.group(`addEventListener()`);
         if (e.target.tagName === "LI") {
             e.target.classList.toggle("checked");
             // saveData();
@@ -38,7 +31,6 @@ listContainer.addEventListener(
     },
     false
 );
-console.groupEnd(`addEventListener()`);
 
 /*function saveData(){
     localStorage.setItem("data", listContainer.innerHTML);
@@ -50,7 +42,6 @@ function showTask() {
 showTask();
 
 function loadPage(array) {
-    console.group(`loadPage()`);
     for (let i = 0; i < array.length; i++) {
         let li = document.createElement("li");
         li.innerHTML = array[i].task;
@@ -62,7 +53,6 @@ function loadPage(array) {
         }
         listContainer.appendChild(li);
     }
-    console.groupEnd(`loadPage()`);
 }
 
 let x = null;

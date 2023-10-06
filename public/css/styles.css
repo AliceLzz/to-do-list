@@ -5,18 +5,11 @@
     box-sizing: border-box;
 }
 
-.container{
-    width: 100%;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #153677, #4e085f);
-    padding: 10px;
-}
 
 .todo-app{
     width: 100%;
     max-width: 540px;
     background: #fff;
-    margin: 100px auto 20px;
     padding: 40px 30px 70px;
     border-radius: 8px;
 }
@@ -52,11 +45,10 @@ input{
     font-weight: 14px;
 }
 
-button{
+.primaryBtn{
     border: none;
     outline: none;
     padding: 16px 50px;
-    background: #ff5945;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
@@ -111,8 +103,8 @@ ul li img{
     position: absolute;
     right: 0;
     top: 5px;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     font-size: 22px;
     color: #555;
     line-height: 40px;
@@ -123,3 +115,7 @@ ul li img{
 ul li img:hover{
     background: #edeef0;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
